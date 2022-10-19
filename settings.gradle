@@ -1,0 +1,3 @@
+include 'book-api'
+include 'rating-api'
+rootProject.name = 'book_store'
