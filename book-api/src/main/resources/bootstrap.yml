@@ -3,6 +3,6 @@ spring:
     name: book-api
   cloud:
     config:
-      uri: http://localhost:8080 #Config Server URL
+      uri: http://localhost:8091 #Config Server URL
       username: eudis.duarte
       password: Erdusa*8000

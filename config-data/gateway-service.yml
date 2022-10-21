@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8099/eureka/
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enable: true
+      routes:
+        - id: book-api
+          uri: lb://book-api
+          predicates:
+            - Path=/books/**
+        - id: rating-api
+          uri: lb://rating-api
+          predicates:
+            - Path=/ratings/**
