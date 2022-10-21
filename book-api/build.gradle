@@ -13,7 +13,7 @@ repositories {
 }
 
 ext {
-	set('springCloudVersion', "2021.0.3")
+	set('springCloudVersion', "2021.0.4")
 }
 
 dependencies {
@@ -22,6 +22,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
