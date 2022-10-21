@@ -1,1 +1,8 @@
-spring.application.name=rating-api
+spring:
+  application:
+    name: rating-api
+  cloud:
+    config:
+      uri: http://localhost:8080 #Config Server URL
+      username: eudis.duarte
+      password: Erdusa*8000
