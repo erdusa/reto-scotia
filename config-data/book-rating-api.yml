@@ -1,0 +1,21 @@
+server:
+  port: 8083
+  error:
+    include-message: always
+    include-binding-errors: always
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8099/eureka
+
+feign:
+  hystrix:
+    enabled: true
+  circuitbreaker:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

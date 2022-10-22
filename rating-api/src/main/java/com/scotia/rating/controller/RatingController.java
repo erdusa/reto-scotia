@@ -40,4 +40,9 @@ public class RatingController {
     public Rating getRating(@PathVariable("id") int idRating) {
         return this.ratingService.getRating(idRating);
     }
+
+    @GetMapping("/book/{id}")
+    public List<Rating> listRatingByBook(@PathVariable("id") long bookId) {
+        return this.ratingService.listRatingByBook(bookId);
+    }
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RatingService {
@@ -41,6 +42,12 @@ public class RatingService {
                 .filter(r -> r.getId() == idRating)
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("No existe un rating con ese id"));
+    }
+
+    public List<Rating> listRatingByBook(long bookId) {
+        return this.ratingList.stream()
+                .filter(b -> b.getBookId() == bookId)
+                .collect(Collectors.toList());
     }
 
 }
