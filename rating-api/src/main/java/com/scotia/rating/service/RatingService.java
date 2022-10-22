@@ -12,11 +12,10 @@ public class RatingService {
     private final List<Rating> ratingList = new ArrayList<>();
 
     public boolean addRating(Rating rating) {
-        boolean ratingExist = ratingList.stream().anyMatch(r -> r.getId() == rating.getId());
-        if (ratingExist) {
-            throw new RuntimeException(String.format("El rating con id %d ya existe", rating.getId()));
-        }
-
+        long nextId = ratingList.stream()
+                .mapToLong(Rating::getId)
+                .max().orElse(0) + 1;
+        rating.setId(nextId);
         return ratingList.add(rating);
     }
 

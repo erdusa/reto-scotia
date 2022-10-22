@@ -4,6 +4,7 @@ import com.scotia.book.model.Book;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -11,11 +12,8 @@ public class BookService {
     private final List<Book> bookList = new ArrayList<>();
 
     public boolean addBook(Book book) {
-        boolean bookExist = bookList.stream().anyMatch(b -> b.getId() == book.getId());
-        if (bookExist) {
-            throw new RuntimeException(String.format("El libro con id %d ya existe", book.getId()));
-        }
-
+        long nextId = bookList.stream().mapToLong(Book::getId).max().orElse(0) + 1;
+        book.setId(nextId);
         return bookList.add(book);
     }
 
