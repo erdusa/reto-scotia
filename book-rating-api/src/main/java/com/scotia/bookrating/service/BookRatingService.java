@@ -21,18 +21,12 @@ public class BookRatingService {
     }
 
     public List<Book> listBook() {
-        return this.bookClient.getBooks().stream()
-                .peek(b -> {
-                    List<Rating> ratings = this.ratingClient.getRatingsByBook(b.getId());
-                    b.setRatings(ratings);
+        return this.bookClient.getBooks()
+                .stream()
+                .peek(book -> {
+                    List<Rating> ratings = this.ratingClient.getRatingsByBook(book.getId());
+                    book.setRatings(ratings);
                 }).collect(Collectors.toList());
-
-        /*List<Book> books = this.bookClient.getBooks();
-        books.forEach(b -> {
-            List<Rating> ratings = this.ratingClient.getRatingsByBook(b.getId());
-            b.setRatings(ratings);
-        });
-        return books;*/
     }
 
 }

@@ -20,4 +20,8 @@ spring:
         - id: rating-api
           uri: lb://rating-api
           predicates:
-            - Path=/ratings/**
+            - Path=/ratings/**        
+        - id: book-rating-api
+          uri: lb://book-rating-api
+          predicates:
+            - Path=/book-ratings/**
